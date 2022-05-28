@@ -34,5 +34,4 @@ class nif {
         return $this->letra === $this->obtenerLetra($this->numerodni);
     }
 
-
 }

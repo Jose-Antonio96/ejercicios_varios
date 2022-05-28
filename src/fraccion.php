@@ -1,8 +1,8 @@
 <?php
-
+namespace ITEC\PRESENCIAL\DAW\PROG\ejerciciosvarios;
 //Clase 1: Crea una clase Fracción con métodos para sumar, restar, multiplicar y dividir fracciones.
 
-class Fraccion {
+class fraccion {
     private int $num1;
     private int $num2;
 

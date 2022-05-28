@@ -52,6 +52,10 @@ class fecha {
     public function modificarFechaActual(){
         return $this->getFechaActual()->modify('+1 day');
     }
+
+    public function getFechaSiguienteDia():\DateTime{
+        return $this->modificarFechaActual();
+    }
     
 
 

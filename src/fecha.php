@@ -12,7 +12,7 @@ class fecha {
     private int $dia;
     private \DateTime $datetimeObj;
 
-    public function __construct(int $año, int $mes, int $dia) {
+    public function __construct(int $dia, int $mes, int $año) {
         $this->datetimeObj = new \DateTime();
         $this->datetimeObj->setDate($año,$mes,$dia);
         $this->año = $año;
@@ -20,8 +20,8 @@ class fecha {
         $this->dia = $dia;
     }
 
-    public function createFecha(int $año, int $mes, int $dia) {
-        return new fecha($año, $mes, $dia);
+    public function createFecha(int $dia, int $mes, int $año) {
+        return new fecha($dia, $mes, $año);
     }
 
     public function getaño() {
@@ -37,12 +37,11 @@ class fecha {
     }
 
     public function __toString(){
-        return $this->datetimeObj->format("j/n/Y"); //Esto indica que el objeto datetimeObj
-                                            //tendrá 24h, 60 min y 60 sec de formato
+        return $this->datetimeObj->format('d/m/Y');
     }
 
-    public function validarFecha(\DateTime $datetimeObj):bool{
-        return $datetimeObj === $this->datetimeObj;
+    public function validarFecha():bool{
+        return $this->getFecha()->format('d/m/Y') === $this->datetimeObj->format('d/m/Y');
     }
 
     public function getFechaActual():\DateTime{
@@ -55,6 +54,10 @@ class fecha {
 
     public function getFechaSiguienteDia():\DateTime{
         return $this->modificarFechaActual();
+    }
+
+    public function getFecha():\DateTime{
+        return $this->datetimeObj;
     }
     
 

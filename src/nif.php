@@ -34,4 +34,12 @@ class nif {
         return $this->letra === $this->obtenerLetra($this->numerodni);
     }
 
+    public function __toString(){
+        return $this->numerodni . $this->letra;
+    }
+
+    public function isNifCorrecto(){
+        return $this->isLetraCorrecta();
+    }
+
 }

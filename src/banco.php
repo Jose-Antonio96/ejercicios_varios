@@ -7,10 +7,14 @@ class banco{
     private int $numcuenta;
     private int $saldo;
     private array $cuentas;
+    private static $numcargas=0;
+    private static $numingresos=0;
 
     public function __construct(int $numcuenta, int $saldo) {
         $this->numcuenta = $numcuenta;
         $this->saldo = $saldo;
+        self::$numcargas=0;
+        self::$numingresos=0;
     }
 
     public function createCuenta(int $numcuenta, int $saldo) {
@@ -36,8 +40,20 @@ class banco{
     public function getnumCuentas(){
         return count($this->cuentas);
     }
-        
+
+    public function numcargas(){
+        return self::$numcargas;
     }
 
+    public function numingresos(){
+        return self::$numingresos;
+    }
 
+    public function getSaldoFinalCuenta(){
+        return 
+
+
+        
 }
+
+

@@ -15,7 +15,7 @@ class banco{
         $this->numcuenta = $numcuenta;
         $this->saldo = $saldo;
         $this->numcargas=0;
-        $this->$numingresos=0;
+        $this->numingresos=0;
         self::$cuentas[]=$this;
     }
 

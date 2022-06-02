@@ -71,8 +71,7 @@ final class bancoTest extends Testcase{
         $cuentabanco1->getSaldoFinalCuenta;
         $cuentabanco2->getSaldoFinalCuenta;
         $cuentas = [$cuentabanco1, $cuentabanco2];
-        $this-> assertEquals($cuentas, $esperado, getSaldoBancoFinal($cuentas, $saldoinicial)
-        );
+        $this-> assertEquals($cuentas, $esperado, banco::getSaldoBanco1());
     }
 }
 

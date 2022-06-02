@@ -23,7 +23,7 @@ final class bancoTest extends Testcase{
         $cuentabanco= new banco($numcuenta, $saldoinicial);
         $this-> assertEquals(
             $esperado,
-            $cuentabanco->getSaldoFinalCuenta()
+            $cuentabanco->getSaldoFinalCuenta($cuentabanco)
         );
     }
 
@@ -47,35 +47,14 @@ final class bancoTest extends Testcase{
      * @dataProvider DPtestbancoSaldoIngresado
      */
     public function testbancoSaldoIngresado($esperado, $numcuenta, $saldoinicial, $ingresado){
-        $cuentabanco= new banco($numcuenta, $saldoinicial);
-        $cuentabanco->ingresar($ingresado);
+        $cuentabanco2= new banco($numcuenta, $saldoinicial);
+        $cuentabanco2->ingresar($ingresado);
         $this-> assertEquals(
             $esperado,
-            $cuentabanco->getSaldoFinalCuenta()
+            $cuentabanco2->getSaldoFinalCuenta()
         );
     }
 
-    public function DPtestgetSaldoBancoTotal(){
-        return [
-            "Total en un banco de dos cuentas con 2500 cada una"=>
-                [5000, 
-                32351351,
-                1241414,
-                2500, 2500
-            ]
-        ];
-    }
-    /**
-     * @dataProvider DPtestgetSaldoBancoTotal
-     */
-    public function testgetSaldoBancoTotal($esperado2, $numcuenta1, $numcuenta2, $saldofinal1, $saldofinal2){
-        $cuentabanco4= new banco($numcuenta1, $saldofinal1);
-        $cuentabanco5= new banco($numcuenta2, $saldofinal2);
-        $cuentabanco4->getSaldoFinalCuenta($numcuenta1);
-        $cuentabanco5->getSaldoFinalCuenta($numcuenta2);
-
-        $this-> assertEquals($esperado2, banco::getSaldoBanco2());
-    }
 }
 
 ?>

@@ -35,11 +35,11 @@ final class bancoTest extends Testcase{
                 0,
                 100
             ],
-            "Inicio 1000, ingreso 1000" =>[
-                2000,
+            "Inicio 0, ingreso 50" =>[
+                50,
                 1234,
-                1000,
-                1000
+                0,
+                50
             ]
         ];
     }
@@ -57,21 +57,24 @@ final class bancoTest extends Testcase{
 
     public function DPtestgetSaldoBancoTotal(){
         return [
-            "Cuenta numero 182343 con saldo 2500 y Cuenta numero 182344 con saldo 3500" => [
-                    [182343, 182344], 6000, 2, [2500, 3500] 
+            "Total en un banco de dos cuentas con 2500 cada una"=>
+                [5000, 
+                32351351,
+                1241414,
+                2500, 2500
             ]
         ];
     }
     /**
      * @dataProvider DPtestgetSaldoBancoTotal
      */
-    public function testgetSaldoBancoTotal($cuentas, $esperado, $numcuenta, $saldoinicial){
-        $cuentabanco1= new banco($numcuenta, $saldoinicial);
-        $cuentabanco2= new banco($numcuenta, $saldoinicial);
-        $cuentabanco1->getSaldoFinalCuenta;
-        $cuentabanco2->getSaldoFinalCuenta;
-        $cuentas = [$cuentabanco1, $cuentabanco2];
-        $this-> assertEquals($cuentas, $esperado, banco::getSaldoBanco1());
+    public function testgetSaldoBancoTotal($esperado2, $numcuenta1, $numcuenta2, $saldofinal1, $saldofinal2){
+        $cuentabanco4= new banco($numcuenta1, $saldofinal1);
+        $cuentabanco5= new banco($numcuenta2, $saldofinal2);
+        $cuentabanco4->getSaldoFinalCuenta($numcuenta1);
+        $cuentabanco5->getSaldoFinalCuenta($numcuenta2);
+
+        $this-> assertEquals($esperado2, banco::getSaldoBanco2());
     }
 }
 

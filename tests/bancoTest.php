@@ -55,6 +55,28 @@ final class bancoTest extends Testcase{
         );
     }
 
+    public function DPtestgetSaldoBancoTotal(){
+        $cuentabanco1= new banco(32351351, 2500 );
+        $cuentabanco2= new banco(1241414, 2500 );
+        $cuentas = [$cuentabanco1, $cuentabanco2];
+        $esperado = 5000;
+        return [
+            "Total en un banco de dos cuentas con 2500 cada una"=>
+                [$cuentas, $esperado
+            ]
+        ];
+            
+    }
+    /**
+    * @dataProvider DPtestgetSaldoBancoTotal
+    */
+    public function testgetSaldoBancoTotal($esperado, $actual){
+        $this-> assertEquals(
+            $esperado, $actual->
+            banco::getSaldoBanco1()
+        );
+    }
+    
 }
 
 ?>

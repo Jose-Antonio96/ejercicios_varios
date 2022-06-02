@@ -16,12 +16,14 @@ final class bancoTest2 extends Testcase{
     * @dataProvider DPtestgetSaldoBancoTotal
     */
     public function testgetSaldoBancoTotal($esperado2, $numcuenta1, $numcuenta2, $saldofinal1, $saldofinal2){
-        $cuentabanco4= new banco($numcuenta1, $saldofinal1);
-        $cuentabanco5= new banco($numcuenta2, $saldofinal2);
-        $cuentabanco4->getSaldoFinalCuenta($numcuenta1);
-        $cuentabanco5->getSaldoFinalCuenta($numcuenta2);
-
-        $this-> assertEquals($esperado2, banco::getSaldoBanco2());
+        $cuentabanco1= new banco($numcuenta1, $saldofinal1);
+        $cuentabanco2= new banco($numcuenta2, $saldofinal2);
+        $cuentabanco1->ingresar(2500);
+        $cuentabanco2->ingresar(2500);
+        $this-> assertEquals(
+            $esperado2,
+            $cuentabanco1->getSaldoBanco1($cuentabanco1, $cuentabanco2)
+        );
     }
 }
 

@@ -76,6 +76,10 @@ class banco{
         return $suma;
     }
 
+    public function getSaldoBancoFinal(){
+        $this->getSaldoBanco1();
+    }
+
 
         
 }

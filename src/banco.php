@@ -5,27 +5,26 @@ namespace ITEC\PRESENCIAL\DAW\PROG\ejerciciosvarios;
 //saldo final de una cuenta y el total en el banco.
 
 class banco{
-    private int $nif;
+    private int $numcuenta;
     private int $saldo;
-    private array $cuentas;
+    private static array $cuentas;
     private int $numcargas;
     private int $numingresos;
 
-    public function __construct() {
-        $this->cuentas=[];
-    }
-
-    public static function createBanco(){
-        return new banco();
-    }
-
-    public function createCuenta(int $nif, int $saldo){
-        $this->nif = $nif;
+    public function __construct(int $numcuenta, int $saldo) {
+        $this->numcuenta = $numcuenta;
         $this->saldo = $saldo;
+        $this->numcargas=0;
+        $this->numingresos=0;
+        self::$cuentas[]=$this;
     }
 
-    public function getnif() {
-        return $this->nif;
+    public function createCuenta(int $numcuenta, int $saldo) {
+        return new banco($numcuenta, $saldo);
+    }
+
+    public function getnumcuenta() {
+        return $this->numcuenta;
     }
 
     public function getsaldo() {
@@ -42,7 +41,7 @@ class banco{
         $this->numcargas++;
     }
 
-    public static function getnumeronifs(){
+    public static function getnumCuentas(){
         return count(self::$cuentas);
     }
 
